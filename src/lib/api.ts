@@ -33,6 +33,7 @@ export const api = {
       return [];
     }
   },
+  
 
   sendMessage: async (name: string, content: string) => {
     const response = await fetch(`${API_BASE_URL}/messages`, {
