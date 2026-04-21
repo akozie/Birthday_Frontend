@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "birthdaybackend-production.up.railway.app";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://birthdaybackend-production.up.railway.app";
 
 // Helper for cleaner error handling
 const handleResponse = async (response: Response) => {
