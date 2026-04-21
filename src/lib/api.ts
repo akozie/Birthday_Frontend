@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://birthdaybackend-production.up.railway.app";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://birthdaybackend-production.up.railway.app/api/v1";
 
 // Helper for cleaner error handling
 const handleResponse = async (response: Response) => {
@@ -14,11 +14,11 @@ export const api = {
   getMemories: async () => {
 
     // Temporarily change your fetch logic
-    const response = await fetch(`${API_BASE_URL}/memories`);
+    const response = await fetch(`${API_BASE_URL}/api/v1/memories`);
     const text = await response.text(); // Get raw text
     console.log("Raw Response:", text); // See exactly what the server sent
 
-    // const response = await fetch(`${API_BASE_URL}/memories`);
+    // const response = await fetch(`${API_BASE_URL}/api/v1/memories`);
     return handleResponse(response);
   },
 
