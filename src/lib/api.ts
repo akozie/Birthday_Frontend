@@ -12,7 +12,13 @@ const handleResponse = async (response: Response) => {
 export const api = {
   // Memories
   getMemories: async () => {
+
+    // Temporarily change your fetch logic
     const response = await fetch(`${API_BASE_URL}/memories`);
+    const text = await response.text(); // Get raw text
+    console.log("Raw Response:", text); // See exactly what the server sent
+
+    // const response = await fetch(`${API_BASE_URL}/memories`);
     return handleResponse(response);
   },
 
@@ -33,7 +39,7 @@ export const api = {
       return [];
     }
   },
-  
+
 
   sendMessage: async (name: string, content: string) => {
     const response = await fetch(`${API_BASE_URL}/messages`, {
