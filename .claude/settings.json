@@ -1,0 +1,25 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm dlx ultracite fix"
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers": {
+    "ultracite": {
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://docs.ultracite.ai/mcp"]
+    },
+    "vite-plus": {
+      "command": "npx",
+      "args": ["vp", "mcp"]
+    }
+  }
+}
