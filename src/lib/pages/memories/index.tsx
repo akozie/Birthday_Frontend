@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from 'framer-motion';
-import featuredImage from './assets/art.png';
+import featuredImage from '../../../../public/art.png';
 
 export const Home = () => {
   return (
