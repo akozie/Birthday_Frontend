@@ -2,6 +2,10 @@ import { BirthdayCountdown } from "@/lib/components/BirthdayCountdown";
 import { SecretMessage } from "@/lib/components/SecretMessage";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import featuredImage from '../../../../public/b1.png';
+import featuredImage1 from '../../../../public/b2.png';
+import featuredImage2 from '../../../../public/b3.png';
+import featuredImage3 from '../../../../public/b5.png';
 
 // === Dynamic Text Component (Changes every few seconds) ===
 const DynamicGreeting = () => {
@@ -86,10 +90,10 @@ export const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }} // Elegant ease-out
       >
-        <img src="https://images.unsplash.com/photo-1549416878-b9ca95e26903?q=80&w=600&auto=format&fit=crop" alt="Babe 1" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700" />
-        <img src="https://images.unsplash.com/photo-1531123414780-f74242c2b052?q=80&w=600&auto=format&fit=crop" alt="Babe 2" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700 md:translate-y-6" />
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=600&auto=format&fit=crop" alt="Babe 3" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700" />
-        <img src="https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=600&auto=format&fit=crop" alt="Babe 4" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700 md:translate-y-6" />
+        <img src={featuredImage} alt="Babe 1" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700" />
+        <img src={featuredImage3} alt="Babe 2" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700 md:translate-y-6" />
+        <img src={featuredImage2} alt="Babe 3" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700" />
+        <img src={featuredImage1} alt="Babe 4" className="rounded-xl aspect-square object-cover shadow-lg border-2 border-slate-700 md:translate-y-6" />
       </motion.div>
 
       {/* 3. The "Exciting Text" Section */}

@@ -21,7 +21,7 @@ export const Home = () => {
           </span>
         </h4>
       </motion.header>
-
+``
       {/* 2. Featured Content Strip (Elite Look) */}
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
