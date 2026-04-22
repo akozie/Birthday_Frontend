@@ -62,41 +62,51 @@ export const AddMemoryForm = ({ onMemoryAdded }: { onMemoryAdded: () => void }) 
   // };
 
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setError(null); // Clear previous errors
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setError(null); // Clear previous errors
 
-    // 1. Validation Logic
-    if (!title || !file) {
-      setError("Please select a file."); // Just set the state!
-      return; // Stop here
-    }
+  // 1. Validation Logic (Granular)
+  if (!title.trim()) {
+    setError("Please enter a name for your memory.");
+    return;
+  }
+  
+  if (!file) {
+    setError("Please select an image or video file.");
+    return;
+  }
 
-    const isWithinLimit = await validateVideoDuration(file);
-    if (!isWithinLimit) {
-      setError("Video is too long! Please keep it under 30 seconds.");
-      return; // Stop here
-    }
+  const isWithinLimit = await validateVideoDuration(file);
+  if (!isWithinLimit) {
+    setError("Video is too long! Please keep it under 30 seconds.");
+    return;
+  }
 
-    // 2. Upload Logic
-    setStatus('uploading');
-    try {
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('description', description);
-      formData.append('media', file);
+  // 2. Upload Logic
+  setStatus('uploading');
+  
+  try {
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('media', file);
 
-      await api.createMemory(formData);
-      
-      setStatus('success');
-      setTitle(''); setDescription(''); setFile(null);
-      onMemoryAdded(); 
-      // setTimeout(() => setStatus('idle'), 3000);
-    } catch (err) {
-      console.error("DEBUG ERROR:", err);
-      setError("Failed to upload. Please try again!"); // Just set the state!
-    }
-  };
+    await api.createMemory(formData);
+    
+    setStatus('success');
+    setTitle(''); setDescription(''); setFile(null);
+    onMemoryAdded(); 
+    // Success state naturally auto-hides after the timeout or re-render
+  } catch (err) {
+    console.error("DEBUG ERROR:", err);
+    setError("Failed to upload. Please try again!");
+    
+    // CRITICAL: Set back to idle so the button re-enables
+    setStatus('idle'); 
+  }
+};
+
 
   const validateVideoDuration = (file: File): Promise<boolean> => {
   return new Promise((resolve) => {
