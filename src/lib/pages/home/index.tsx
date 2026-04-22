@@ -67,7 +67,7 @@ const BackgroundParticles = () => {
 // === The Main Exciting Homepage Component ===
 export const Home = () => {
   // Set the target date here (Year, MonthIndex, Day)
-  const targetDate = new Date('2026-04-22T00:00:00');
+  const targetDate = new Date('2026-04-28T00:00:00');
   return (
     <div className="relative flex flex-col items-center justify-center min-h-[90vh] text-center px-4 overflow-hidden selection:bg-pink-500/30">
       <div className="pt-22 px-6"> 
