@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from 'framer-motion';
+import featuredImage from './assets/art.png';
 
 export const Home = () => {
   return (
@@ -27,7 +28,7 @@ export const Home = () => {
         initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
       >
         <div className="md:col-span-2 relative rounded-3xl overflow-hidden border border-slate-800 h-[300px] flex items-end p-10 bg-slate-900">
-            <img src="https://res.cloudinary.com/dygxz74rk/image/upload/v1776454107/IMG_2986_ogxyre.heic" className="absolute inset-0 w-full h-full object-cover opacity-50" alt="Featured" />
+            <img src={featuredImage} className="absolute inset-0 w-full h-full object-cover opacity-50" alt="Featured" />
             <div className="relative z-10">
                 <p className="text-pink-400 font-bold mb-2">Featured Memory</p>
                 <h3 className="text-3xl font-bold text-white">Our First Adventure</h3>
