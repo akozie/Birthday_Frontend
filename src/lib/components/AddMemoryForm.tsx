@@ -9,6 +9,7 @@ export const AddMemoryForm = ({ onMemoryAdded }: { onMemoryAdded: () => void }) 
   const [file, setFile] = useState<File | null>(null);
   const [status, setStatus] = useState<'idle' | 'uploading' | 'success' | 'error'>('idle');
   const [error, setError] = useState<string | null>(null);
+  const [successName, setSuccessName] = useState('');
 
   useEffect(() => {
   if (error) {
@@ -94,6 +95,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
     await api.createMemory(formData);
     
+    setSuccessName(title);
     setStatus('success');
     setTitle(''); setDescription(''); setFile(null);
     onMemoryAdded(); 
@@ -178,7 +180,7 @@ const handleSubmit = async (e: React.FormEvent) => {
       </button>
 
       {/* Feedback Messages */}
-      {status === 'success' && <p className="text-green-400 mt-4 text-center">Memory saved successfully! ✨</p>}
+      {status === 'success' && <p className="text-green-400 mt-4 text-center">Thank you, {successName}! Memory saved successfully! ✨</p>}
       {status === 'error' && <p className="text-red-400 mt-4 text-center">Something went wrong. Try again.</p>}
     </form>
   );
