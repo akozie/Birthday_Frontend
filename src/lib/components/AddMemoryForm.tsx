@@ -68,7 +68,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
   // 1. Validation Logic (Granular)
   if (!title.trim()) {
-    setError("Please enter a name for your memory.");
+    setError("Please enter your name.");
     return;
   }
   
