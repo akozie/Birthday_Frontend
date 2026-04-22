@@ -7,7 +7,7 @@ export const Navbar = () => {
     // { to: "/", label: "Home" },
     { to: "/memories", label: "Birthday Wishes" },
     // { to: "/viewmemories", label: "The Keepsake" },
-    { to: "/guestbook", label: "Guestbook" },
+    // { to: "/guestbook", label: "Guestbook" },
   ];
 
   return (
