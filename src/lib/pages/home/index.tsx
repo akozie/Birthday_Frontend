@@ -64,6 +64,7 @@ const BackgroundParticles = () => {
   );
 };
 
+
 // === The Main Exciting Homepage Component ===
 export const Home = () => {
   // Set the target date here (Year, MonthIndex, Day)
