@@ -59,8 +59,12 @@ export const Home = () => {
       <div className="grid grid-cols-1 md:grid-cols-1 gap-8 w-full">
         <Link to="/addmemories" className="group relative p-10 bg-slate-900 border border-slate-800 rounded-3xl hover:border-pink-500/50 transition-all duration-300 shadow-2xl hover:shadow-pink-500/10">
           <div className="absolute top-0 right-0 p-8 text-4xl opacity-50">✨</div>
-          <h2 className="text-3xl font-bold text-white mb-3">Leave a Little Love</h2>
-          <p className="text-slate-400">Drop a funny story, a sweet note, a picture, birthday wishes or a video to make her day.</p>
+          <h2 className="text-3xl font-bold text-white mb-3">Leave a Little Love
+                          <span className="text-pink-500 ml-2 font-bold">&rarr;</span>
+          </h2>
+            <p className="text-slate-400">
+              Drop a funny story, a sweet note, a picture, birthday wishes or a video to make her day.
+            </p>        
         </Link>
         
         {/* <Link to="/viewmemories" className="group relative p-10 bg-slate-900 border border-slate-800 rounded-3xl hover:border-violet-500/50 transition-all duration-300 shadow-2xl hover:shadow-violet-500/10">
