@@ -1,5 +1,5 @@
 import { BirthdayCountdown } from "@/lib/components/BirthdayCountdown";
-import { SecretMessage } from "@/lib/components/SecretMessage";
+// import { SecretMessage } from "@/lib/components/SecretMessage";
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import featuredImage from '../../../../public/b1.png';
@@ -9,7 +9,7 @@ import featuredImage3 from '../../../../public/b5.png';
 
 // === Dynamic Text Component (Changes every few seconds) ===
 const DynamicGreeting = () => {
-  const messages = ["My Best Friend", "My Rock", "My Home", "My Everything"];
+  const messages = ["My Woman", "My Baby", "My Love", "My Queen", "My Sunshine"];
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -76,8 +76,7 @@ export const Home = () => {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-[90vh] text-center px-4 overflow-hidden selection:bg-pink-500/30">
       <div className="pt-22 px-6"> 
-      <h4 className="text-6xl font-black text-white mb-2">Countdown to Silver Jubilee</h4>
-      <h4 className="text-slate-400  py-4">The celebration begins in...</h4>
+      {/* <h4 className="text-slate-400  py-4">The celebration begins in...</h4> */}
       {/* 1. Animated Background Particles */}
       <BackgroundParticles />
       <BirthdayCountdown targetDate={targetDate} />
@@ -128,7 +127,8 @@ export const Home = () => {
         </motion.div>
         
         <p className="text-slate-300 text-lg italic leading-relaxed">
-          "Today is not just about a birthday; it’s about celebrating the day the world became a much brighter place because you arrived in it."
+          "We are celebrating the day the world became a much brighter place because you arrived in it."
+          {/* "Today is not just about a birthday; it’s about celebrating the day the world became a much brighter place because you arrived in it." */}
         </p>
 
         {/* Decorative divider */}
@@ -143,7 +143,7 @@ export const Home = () => {
         className="mt-12 text-slate-500 text-sm tracking-widest uppercase"
       >
       </motion.p>
-      <SecretMessage /> {/* The Hidden Surprise Component */}
+      {/* <SecretMessage /> The Hidden Surprise Component */}
     </div>
   );
 };
