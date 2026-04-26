@@ -118,6 +118,8 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
 
+
+
   const validateVideoDuration = (file: File): Promise<boolean> => {
   return new Promise((resolve) => {
     // Only check if it's actually a video
