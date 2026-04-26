@@ -100,29 +100,14 @@ const handleSubmit = async (e: React.FormEvent) => {
     setTitle(''); setDescription(''); setFile(null);
     onMemoryAdded(); 
     // Success state naturally auto-hides after the timeout or re-render
-  }  catch (err: any) {
-  console.error("DEBUG ERROR OBJECT:", err); // Log the full object first
-
-  // 1. If it's an Axios error (if you use axios)
-  if (err.response) {
-    const serverMessage = err.response.data || "Unknown server error";
-    console.error("Server responded with:", serverMessage);
-    setError(`Server Error: ${serverMessage}`);
-  } 
-  // 2. If it's a Fetch error
-  else if (err.message) {
-    console.error("Client/Network error:", err.message);
-    setError(`Network Error: ${err.message}`);
-  }
-  else {
+  } catch (err) {
+    console.error("DEBUG ERROR:", err);
     setError("Failed to upload. Please try again!");
+    
+    // CRITICAL: Set back to idle so the button re-enables
+    setStatus('idle'); 
   }
-  
-  setStatus('idle'); // Re-enable the button
-}
 };
-
-
 
 
   const validateVideoDuration = (file: File): Promise<boolean> => {
