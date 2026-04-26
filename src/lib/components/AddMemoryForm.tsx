@@ -100,13 +100,21 @@ const handleSubmit = async (e: React.FormEvent) => {
     setTitle(''); setDescription(''); setFile(null);
     onMemoryAdded(); 
     // Success state naturally auto-hides after the timeout or re-render
-  } catch (err) {
-    console.error("DEBUG ERROR:", err);
-    setError("Failed to upload. Please try again!");
-    
-    // CRITICAL: Set back to idle so the button re-enables
-    setStatus('idle'); 
+  } catch (err: any) {
+  // Check if the server responded with an error from the backend
+  if (err.response) {
+    console.error("❌ SERVER ERROR:", err.response.data);
+    console.error("❌ STATUS CODE:", err.response.status);
+    setError(`Error ${err.response.status}: ${err.response.data}`);
+  } else if (err.request) {
+    console.error("❌ NETWORK ERROR: No response received", err.request);
+    setError("Network error: Could not reach the server.");
+  } else {
+    console.error("❌ UNKNOWN ERROR:", err.message);
+    setError("Something went wrong!");
   }
+  setStatus('idle'); 
+}
 };
 
 
