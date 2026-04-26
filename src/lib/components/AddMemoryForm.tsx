@@ -100,20 +100,25 @@ const handleSubmit = async (e: React.FormEvent) => {
     setTitle(''); setDescription(''); setFile(null);
     onMemoryAdded(); 
     // Success state naturally auto-hides after the timeout or re-render
-  } catch (err: any) {
-  // Check if the server responded with an error from the backend
+  }  catch (err: any) {
+  console.error("DEBUG ERROR OBJECT:", err); // Log the full object first
+
+  // 1. If it's an Axios error (if you use axios)
   if (err.response) {
-    console.error("❌ SERVER ERROR:", err.response.data);
-    console.error("❌ STATUS CODE:", err.response.status);
-    setError(`Error ${err.response.status}: ${err.response.data}`);
-  } else if (err.request) {
-    console.error("❌ NETWORK ERROR: No response received", err.request);
-    setError("Network error: Could not reach the server.");
-  } else {
-    console.error("❌ UNKNOWN ERROR:", err.message);
-    setError("Something went wrong!");
+    const serverMessage = err.response.data || "Unknown server error";
+    console.error("Server responded with:", serverMessage);
+    setError(`Server Error: ${serverMessage}`);
+  } 
+  // 2. If it's a Fetch error
+  else if (err.message) {
+    console.error("Client/Network error:", err.message);
+    setError(`Network Error: ${err.message}`);
   }
-  setStatus('idle'); 
+  else {
+    setError("Failed to upload. Please try again!");
+  }
+  
+  setStatus('idle'); // Re-enable the button
 }
 };
 
