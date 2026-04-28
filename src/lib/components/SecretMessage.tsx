@@ -6,7 +6,13 @@ const messages = [
   "25 years of you, and I'm still falling for you every single day.",
   "You are the best thing that has ever happened to me. Happy 25th!",
   "Cheers to 25 years of being the most amazing person I know.",
-  "I'm so lucky to be the one who gets to celebrate you today and every day."
+  "I'm so lucky to be the one who gets to celebrate you today and every day.",
+  "Happy 25th birthday, my love! Here's to many more years of happiness together.",
+  "You are the light of my life, and I can't wait to see what the future holds for us. Happy 25th!",
+  "To the most incredible person I know, happy 25th birthday! You deserve all the love and happiness in the world.",
+  "Every moment with you is a gift. Happy 25th birthday, my darling!",
+  "25 years of you, and I'm still in awe of how amazing you are. Happy birthday, my love!",
+  "Happy 25th birthday, Sweet Home!❤️",
 ];
 
 export const SecretMessage = () => {
