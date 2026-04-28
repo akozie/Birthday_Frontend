@@ -1,6 +1,6 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { Navbar } from '../lib/layout/Navbar';
-// import { SecretMessage } from '@/lib/components/SecretMessage';
+import { SecretMessage } from '@/lib/components/SecretMessage';
 import { SparkleBackground } from '@/lib/components/SparkleBackground';
 
 const title = 'Vite React Tailwind Starter';
@@ -114,7 +114,7 @@ export const Route = createRootRoute({
       <main className="max-w-6xl mx-auto px-6 py-8">
         <Outlet />
       </main>
-      {/* <SecretMessage /> */}
+      <SecretMessage />
     </div>
     // <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-pink-500/30">
     //   <Navbar />
